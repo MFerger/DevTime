@@ -26,9 +26,9 @@
       _currentUser.q3 = questions.c;
       _currentUser.q4 = questions.d;
       _currentUser.time = questions.time;
-      return $http.post('/api/v1/users/signup/', _currentUser)
+      return $http.post('/api/v1/users/signup', _currentUser)
         .then(function(res) {
-          console.log(res);
+          console.log('it cam back from the server', res);
         })
     }
 
@@ -38,5 +38,6 @@
           console.log(res);
         })
     }
+
   }
 }());

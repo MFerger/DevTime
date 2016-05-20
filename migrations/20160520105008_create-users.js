@@ -10,7 +10,7 @@ exports.up = function(knex, Promise) {
             table.integer('q2');
             table.integer('q3');
             table.integer('q4');
-            table.integer('time').unsigned();
+            table.boolean('time').defaultTo(false);
     })
 };
 
