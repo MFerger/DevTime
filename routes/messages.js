@@ -45,10 +45,13 @@ router.post('/', function(req, res, next){
   var phone = req.body.phone
   var time = req.body.time;
   var unit = req.body.unit;
+
   // var message = req.body.message;
   // var conversationId = req.body.conversationId;
-  // var user = req.user;
+  var user = req.user;
   var errors = []
+
+  req.user.id = 1;
 
   if (!phone) errors.push("You need to enter a phone number.");
   if (!time) errors.push("Please enter a time estimate.");
@@ -78,7 +81,7 @@ router.post('/', function(req, res, next){
       if (err) {
         console.log(err);
         knex('messages').where('id', message.id).then(function(){
-          res.status(500).send({message: "Could not send message :(. Try again later..."});
+          res.status(500).send({message: "Could not send message :. Try again later..."});
         })
       }else{
         res.json({message: 'Message successfully sent to ' + phone});
@@ -86,7 +89,9 @@ router.post('/', function(req, res, next){
         console.log(responseData.body);
       }
     });
-
+  }).catch(function(err){
+    console.log(err);
+    res.status(500).send({errors:["Could not send message."]})
   })
 })
 

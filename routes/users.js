@@ -9,11 +9,16 @@ router.post('/signup', function(req, res, next) {
     console.log(req.body);
 
     knex("users").insert(req.body).returning("*").then(function(result){
-            res.json(result);
-        }).catch(function(err){
-            console.log(err);
-            res.status(400).send({errors: ['error ocurred with db call.']})
-        });
+      var token = jwt.sign({id: user.id}, process.env.JWT_SECRET);
+      res.json({
+          id: user.id,
+          name: user.name,
+          token: token
+      });
+    }).catch(function(err){
+        console.log(err);
+        res.status(400).send({errors: ['error ocurred with db call.']})
+    });
 });
 
 router.post('/login', function(req, res, next) {
@@ -27,18 +32,17 @@ router.post('/login', function(req, res, next) {
 
                 var user = user[0];
                 var token = jwt.sign({id: user.id}, process.env.JWT_SECRET);
-                        res.json({
-                            id: user.id,
-                            name: user.name,
-                            token: token
-                        });
-
+                res.json({
+                    id: user.id,
+                    name: user.name,
+                    token: token
+                });
 
             } else {
                 res.status(400).send({errors: ['Invalid credentials']})
             }
         })
-        
+
 });
 
 module.exports = router;
