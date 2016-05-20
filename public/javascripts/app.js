@@ -2,11 +2,24 @@
   'use strict';
 
   var dependencies = [
-    'ui.router'
+    'ui.router',
+    'ngAnimate'
   ];
 
   angular.module('devtime', dependencies)
   .config(setupStates)
+    .factory('authInterceptor', function ($location) {
+      return {
+        request: function (config) {
+          if (localStorage.getItem('token')) {
+              config.headers.Authorization = 'Bearer ' + localStorage.getItem('token');
+              return config
+            } else {
+              return config;
+            }
+        }
+      }
+    })
 
   setupStates.$inject = [
     '$stateProvider',
@@ -18,6 +31,7 @@
   function setupStates($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider){
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
+    $httpProvider.interceptors.push('authInterceptor');
 
     $stateProvider
      .state('devtime', {
