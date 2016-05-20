@@ -13,7 +13,8 @@
     return {
       questions: questions,
       signup: signup,
-      login: login
+      login: login,
+      message: message
     }
 
     function signup(postData) {
@@ -26,9 +27,9 @@
       _currentUser.q3 = questions.c;
       _currentUser.q4 = questions.d;
       _currentUser.time = questions.time;
-      return $http.post('/api/v1/users/signup/', _currentUser)
+      return $http.post('/api/v1/users/signup', _currentUser)
         .then(function(res) {
-          console.log(res);
+          console.log('it cam back from the server', res);
         })
     }
 
@@ -38,5 +39,9 @@
           console.log(res);
         })
     }
+    function message (msg) {
+      
+    }
+
   }
 }());

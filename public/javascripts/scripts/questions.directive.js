@@ -15,10 +15,11 @@ angular.module('devtime')
   }
   controller.$inject = [
     '$log',
-    'questionsService'
+    'questionsService',
+    '$state'
   ]
 
-  function controller($log, questionsService) {
+  function controller($log, questionsService, $state) {
     var vm = this;
     vm.form = {};
     vm.form.time = 'function Person(name){this.name = name;} \n Person.prototype.greet = function(otherName){\nreturn"Hi " + otherName + ", my name is " + name;\n}'
@@ -35,6 +36,7 @@ angular.module('devtime')
       var questions = angular.copy(vm.form);
       vm.form = {};
       questionsService.questions(questions);
+      $state.go('messages');
     }
 
 

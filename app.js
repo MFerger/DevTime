@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var messages = require('./routes/messages');
+var users = require('./routes/users');
 
 var app = express();
 
@@ -15,7 +16,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 
 app.use(function(req, res, next){
@@ -28,12 +31,13 @@ app.use(function(req, res, next){
   next();
 })
 
-
-app.use('/api/v1/messages', messages)
 app.use('/', routes);
+app.use('/api/v1/users', users);
+app.use('/api/v1/messages', messages);
 
-
-
+app.use('/*', function (req, res, next) {
+ res.sendFile('index.html', {root: __dirname + '/public/'});
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
