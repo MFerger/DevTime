@@ -1,0 +1,129 @@
+<div class="container">
+  <form name='formQuestions' ng-submit='vm.form.submitQuestions(formQuestions)'>
+
+  <div class="c-inputs-stacked">
+    <h4>How long have you been developing for?</h4>
+  <label class="c-input c-radio">
+    <input ng-model="vm.form.a" name='question1' type="radio" value='1'>
+    <span class="c-indicator"></span>
+    Less than 6 months
+  </label><br>
+  <label class="c-input c-radio">
+    <input ng-model="vm.form.a" name='question1' type="radio" value='2'>
+    <span class="c-indicator"></span>
+    6 months - 1 year
+  </label><br>
+  <label class="c-input c-radio">
+    <input ng-model="vm.form.a" name='question1' type="radio" value='3'>
+    <span class="c-indicator"></span>
+    1 - 2 years
+  </label><br>
+  <label class="c-input c-radio">
+    <input ng-model="vm.form.a" name='question1' type="radio" value='4'>
+    <span class="c-indicator"></span>
+    2 - 5 years
+  </label><br>
+  <label class="c-input c-radio">
+    <input ng-model="vm.form.a" name='question1' type="radio" value='5'>
+    <span class="c-indicator"></span>
+    5+ years
+  </label><br>
+</div>
+
+<div class="c-inputs-stacked">
+  <h4>How willing are you to walk away from a problem?</h4>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.b" name='question2' type="radio" value='1'>
+  <span class="c-indicator"></span>
+  What problem?
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.b" name='question2' type="radio" value='2'>
+  <span class="c-indicator"></span>
+  Giving up in 10... 9... 8...
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.b" name='question2' type="radio" value='3'>
+  <span class="c-indicator"></span>
+  I'll Google and StackOverflow my problem
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.b" name='question2' type="radio" value='4'>
+  <span class="c-indicator"></span>
+  I'll ask my guru - Seth.
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.b" name='question2' type="radio" value='5'>
+  <span class="c-indicator"></span>
+  I'm staying here till its finished.
+</label><br>
+</div>
+
+<div class="c-inputs-stacked">
+  <h4>What is your typing speed?</h4>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.c" name='question3' type="radio" value='1'>
+  <span class="c-indicator"></span>
+  30-40 WPM
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.c" name='question3' type="radio" value='2'>
+  <span class="c-indicator"></span>
+  41-50 WPM
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.c" name='question3' type="radio" value='3'>
+  <span class="c-indicator"></span>
+  51-60 WPM
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.c" name='question3' type="radio" value='4'>
+  <span class="c-indicator"></span>
+  61-70 WPM
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.c" name='question3' type="radio" value='5'>
+  <span class="c-indicator"></span>
+  71+ WPM
+</label><br>
+</div>
+
+<div class="c-inputs-stacked">
+  <h4>How gud is ur spelin?</h4>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.d" name='question4' type="radio" value='1'>
+  <span class="c-indicator"></span>
+  Mi engrish no so good
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.d" name='question4' type="radio" value='2'>
+  <span class="c-indicator"></span>
+  Controller vs Conroller & Fuction vs Function
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.d" name='question4' type="radio" value='3'>
+  <span class="c-indicator"></span>
+  I sometimes spell Angualr.
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.d" name='question4' type="radio" value='4'>
+  <span class="c-indicator"></span>
+  Sometimes I miss a /> tag.
+</label><br>
+<label class="c-input c-radio">
+  <input ng-model="vm.form.d" name='question4' type="radio" value='5'>
+  <span class="c-indicator"></span>
+  I breeze through words such as concatenating and transclusion.
+</label><br>
+</div>
+
+<div class="c-inputs-stacked">
+  <h4>What is wrong with this code? Fix it and hit submit.</h4>
+  <textarea ng-model='vm.form.time' name='question5' rows='10' cols='30'>
+  </textarea><br/>
+  <button type="submit" class='btn btn-primary'>Submit Answers</button>
+</div>
+
+</form>
+
+</div>
