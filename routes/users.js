@@ -23,18 +23,22 @@ router.post('/login', function(req, res, next) {
     knex('users').where({phone: req.body.phone, name: req.body.name}).returning('*')
         .then(function (user) {
             // jwt sign
-            console.log(user);
-            // var token = jwt.sign({id: user.id}, process.env.JWT_SECRET);
-            //             res.json({
-            //                 id: user.id,
-            //                 name: user.username,
-            //                 token: token
-            //             })
+            if (user.length) {
+
+                var user = user[0];
+                var token = jwt.sign({id: user.id}, process.env.JWT_SECRET);
+                        res.json({
+                            id: user.id,
+                            name: user.name,
+                            token: token
+                        });
+
+
+            } else {
+                res.status(400).send({errors: ['Invalid credentials']})
+            }
         })
-        .catch(function (err) {
-            console.log(err);
-            res.status(400).send({errors: ['Invalid Username or Phone Number']})
-        })
+        
 });
 
 module.exports = router;
