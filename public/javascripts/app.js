@@ -8,6 +8,14 @@
 
   angular.module('devtime', dependencies)
   .config(setupStates)
+  .run(function ($rootScope, $state, $window, $location) {
+      $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
+        if(toState.protected && !localStorage.getItem('token')) {
+          event.preventDefault();
+          $state.go('landing')
+        }
+      });
+    })
     .factory('authInterceptor', function ($location) {
       return {
         request: function (config) {
@@ -61,7 +69,8 @@
       .state('messages', {
         template: '<dev-messages></dev-messages>',
         parent: 'devtime',
-        url: '/messages'
+        url: '/messages',
+        protected: true
       })
   }
 
