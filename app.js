@@ -15,13 +15,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(function(req, res, next){
   req.user = {
-    username: "Seth",
-    key: ""
+    name: "Seth",
+    twilioID: "PN848ca83e27924709b6b899e413c59c9a",
+    token: "fee511e61fa7b8a25918e4915eb45b5f"
   }
   next();
 })
