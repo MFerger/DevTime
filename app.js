@@ -21,7 +21,8 @@ app.use(cookieParser());
 app.use(function(req, res, next){
   req.user = {
     name: "Seth",
-    twilioID: "PN848ca83e27924709b6b899e413c59c9a",
+    phone: '+17208973791',
+    twilioID: "AC97360b975ad105d73717bbe511677539",
     token: "fee511e61fa7b8a25918e4915eb45b5f"
   }
   next();
