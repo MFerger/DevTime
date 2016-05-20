@@ -21,19 +21,29 @@
 
     $stateProvider
      .state('devtime', {
+       abstract: true,
        templateUrl: '/javascripts/layout/layout.html',
-       url: "/"
+    })
+    .state('landing',{
+      template: '<landing-page></landing-page>',
+      parent: 'devtime',
+      url: "/"
     })
     .state('login',{
       template: '<dev-login></dev-login>',
       parent: 'devtime',
-      url: "login",
+      url: "/login"
     })
-    // .state('code',{
-    //   template: '<or-code></or-code>',
-    //   parent: 'app',
-    //   url: "code",
-    //   })
+    .state('signup',{
+      template: '<dev-signup></dev-signup>',
+      parent: 'devtime',
+      url: "/signup",
+      })
+      .state('questions', {
+        template: '<dev-questions></dev-questions>',
+        parent: 'devtime',
+        url: '/superfuntimequestions'
+      })
   }
 
 }());

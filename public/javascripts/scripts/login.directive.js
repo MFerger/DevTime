@@ -13,12 +13,20 @@ angular.module('devtime')
       controllerAs: 'vm'
     }
   }
-  conroller.$inject = [
+  controller.$inject = [
     '$log'
   ]
 
   function controller($log) {
     var vm = this;
+    vm.form = {};
+    vm.form.login = login;
+
+    function login(form) {
+      var login = angular.copy(vm.form);
+      vm.form = {};
+      questionsService.login(login);
+    }
   }
 
 }());
