@@ -40,7 +40,10 @@
         })
     }
     function message (msg) {
-      
+      return $http.post('/api/v1/messages', msg)
+        .then(function (res) {
+          alert(res.data.msg)
+        })
     }
 
   }
