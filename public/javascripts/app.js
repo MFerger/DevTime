@@ -42,7 +42,17 @@
       .state('questions', {
         template: '<dev-questions></dev-questions>',
         parent: 'devtime',
-        url: '/superfuntimequestions'
+        url: '/superawesomefuntimequestions'
+      })
+      .state('messages', {
+        template: '<dev-messages></dev-messages>',
+        parent: 'devtime',
+        url: '/messages'
+      })
+      .state('conversation', {
+        template: '<dev-conversations></dev-conversations>',
+        parent: 'messages',
+        url: '/conversation/:id'
       })
   }
 
