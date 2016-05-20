@@ -1,19 +1,15 @@
-<section>
+<section class='col-md-4'>
 
-  <form ng-submit='vm.login()'>
+  <form name='loginForm' ng-submit='vm.form.login(loginForm)'>
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" placeholder="Your email here">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" ng-model='vm.form.name' placeholder="Your name here">
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" placeholder="Your password here">
+      <label for="phone">Phone Number</label>
+      <input type="text" class="form-control" ng-model='vm.form.phone' placeholder="Your phone number here">
     </div>
-    <div class="form-group">
-      <label for="phone">Phone</label>
-      <input type="text" class="form-control" placeholder="10 digit phone number here">
-    </div>
-    <button type="submit" class="btn btn-primary">Sign up!</button>
+    <button type="submit" class="btn btn-primary">Log In!</button>
   </form>
 
 
