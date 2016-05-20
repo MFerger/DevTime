@@ -35,6 +35,9 @@ app.use('/', routes);
 app.use('/api/v1/users', users);
 app.use('/api/v1/messages', messages);
 
+app.use('/*', function (req, res, next) {
+ res.sendFile('index.html', {root: __dirname + '/public/'});
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

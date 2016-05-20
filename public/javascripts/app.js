@@ -49,11 +49,6 @@
         parent: 'devtime',
         url: '/messages'
       })
-      .state('conversation', {
-        template: '<dev-conversations></dev-conversations>',
-        parent: 'messages',
-        url: '/conversation/:id'
-      })
   }
 
 }());

@@ -13,7 +13,8 @@
     return {
       questions: questions,
       signup: signup,
-      login: login
+      login: login,
+      message: message
     }
 
     function signup(postData) {
@@ -37,6 +38,9 @@
         .then(function(res) {
           console.log(res);
         })
+    }
+    function message (msg) {
+      
     }
 
   }
