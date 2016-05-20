@@ -18,6 +18,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+app.use('/', routes);
+app.use('/api/v1/users', routes);
+
+
 app.use(function(req, res, next){
   req.user = {
     name: "Seth",
